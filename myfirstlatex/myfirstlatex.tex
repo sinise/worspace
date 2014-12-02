@@ -1,0 +1,29 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath} % flere matematikkommandoer
+\usepackage[utf8]{inputenc} % æøå
+\usepackage[T1]{fontenc} % mere æøå
+\usepackage[danish]{babel} % orddeling
+
+\title{Mit F\o rste \LaTeX-dokument}
+\author{Henrik}
+
+\begin{document}
+\maketitle
+
+\section{Indledning}
+I \LaTeX kan man skrive en matrix vha \verb!array! som 
+$$
+\mathbf A=
+\left(\begin{array}{cc}
+1&7\\9&13
+\end{array}\right).
+$$
+Hvis pakken \verb!amsmath! inkluderes kan man ogs\aa\ bruge \verb!pmatrix!: 
+$$
+\begin{pmatrix}
+1&7\\9&13
+\end{pmatrix}.
+$$
+Hvis pakken sds \verb!inputenc! inkluderes kan man skrive æ,ø,å direkte fra et
+dansk tastatur.
+\end{document}

@@ -1,0 +1,486 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath} % flere matematikkommandoer
+\usepackage[utf8]{inputenc} % æøå
+\usepackage[T1]{fontenc} % mere æøå
+\usepackage[danish]{babel} % orddeling
+\usepackage{enumerate}
+
+\title{Projekt A}
+\author{Sebastian O. Jensen
+		GJX 653
+		hold 3}
+
+\begin{document}
+\newcommand{\Eone}{
+\left(\begin{array}{ccc}
+1&0&0
+\\
+-4&1&0
+\\
+0&0&1
+\end{array}\right)
+  }
+  
+\newcommand{\Etwo}{  
+\left(\begin{array}{ccc}
+1&0&0
+\\
+0&0&1
+\\
+0&1&0
+\end{array}\right)
+}
+
+\newcommand{\Ethree}{
+\left(\begin{array}{ccc}
+1&0&0
+\\
+0&1&0
+\\
+0&0&1/5
+\end{array}\right)
+}
+
+\newcommand{\Efour}{
+\left(\begin{array}{ccc}
+1&0&1
+\\
+0&1&0
+\\
+0&0&1
+\end{array}\right)
+}
+
+\newcommand{\fourXthree}{
+\left(\begin{array}{ccc}
+1&0&1/5
+\\
+0&1&0
+\\
+0&0&1/5
+\end{array}\right)
+  }
+  
+\newcommand{\fourXthreeXtwo}{
+\left(\begin{array}{ccc}
+1&1/5&0
+\\
+0&0&1
+\\
+0&1/5&0
+\end{array}\right)
+  }  
+  
+\newcommand{\fourXthreeXtwoXone}{
+\left(\begin{array}{ccc}
+1/5&1/5&0
+\\
+0&0&1
+\\
+-4/5&1/5&0
+\end{array}\right)
+  }  
+
+\newcommand{\fiveXfourXthreeXtwoXone}{
+\left(\begin{array}{ccc}
+1&1&0
+\\
+0&0&1
+\\
+-4&1&0
+\end{array}\right)
+  }  
+  
+\maketitle
+\section{Opgave 1}
+\begin{enumerate}[(a)]
+\item Jeg opskriver totalmatricen for ligningsystemet
+$$
+\mathbf A=
+\left(\begin{array}{cccc}
+2&3&-1&2\\1&1&1&1\\4&-1&a&4
+\end{array}\right)
+$$
+
+	Jeg fortager nu de nævnte rækkeoperationer.
+	 
+	$	r_{1} \leftrightarrow r_{2}$ 
+$$
+\mathbf A=
+\left(\begin{array}{cccc}
+1&1&1&1
+\\
+2&3&-1&2
+\\
+4&-1&a&4
+\end{array}\right)
+$$
+	
+		$r_{2} - 2 \cdot r1$
+
+$$
+\mathbf A=
+\left(\begin{array}{cccc}
+1&1&1&1
+\\
+0&1&-3&0
+\\
+4&-1&a&4
+\end{array}\right)
+$$
+		
+		$r_{3} - 4 \cdot r1$
+
+$$
+\mathbf A=
+\left(\begin{array}{cccc}
+1&1&1&1
+\\
+0&1&-3&0
+\\
+0&-5&a-4&0
+\end{array}\right)
+$$
+
+		$r_{3} + 5 \cdot r2$
+
+$$
+\mathbf A=
+\left(\begin{array}{cccc}
+1&1&1&1
+\\
+0&1&-3&0
+\\
+0&0&a-19&0
+\end{array}\right)
+$$
+Den omformede matrice er på rækkeechelonform da den første pivot i vær række
+ligger til højre for pivoten i rækken oven for, samtidig skal evt. nul rækker ligge under alle ikke nul
+rækker. Den omformede matrice er ikke på reduceret echelonform da ikke alle
+pivot’er 1 samt at der over pivot'erne ikke står 0.
+
+
+
+\item Jeg lader nu a = 19 og opskriver matricen med den kendte værdi for
+$$
+\mathbf A=
+\left(\begin{array}{cccc}
+1&1&1&1
+\\
+0&1&-3&0
+\\
+0&0&19-19&0
+\end{array}\right)
+$$
+
+$$
+\mathbf A=
+\left(\begin{array}{cccc}
+1&1&1&1
+\\
+0&1&-3&0
+\\
+0&0&0&0
+\end{array}\right)
+$$
+
+Jeg bringer nu matricen på reduceret rælleechelonform vha. backward reduction
+	
+	$	r_{1} - r_{2}$
+$$
+\mathbf A=
+\left(\begin{array}{cccc}
+1&0&4&1
+\\
+0&1&-3&0
+\\
+0&0&0&0
+\end{array}\right)
+$$
+
+Løsningen til ligningssytemet er hermed givet
+ 
+	$	(x_{1}, x_{2}, x_{3}) = (1-4t, +3t, t)$
+
+\item
+Jeg lader nu a = 20 og bestemer den inverse matrix til koefficientmatricen.
+
+
+$$
+\mathbf A \cdot I_{3} =
+\left(\begin{array}{ccc|ccc}
+1&1&1&1&0&0
+\\
+0&1&-3&0&1&0
+\\
+0&0&1&0&0&1
+\end{array}\right)
+$$
+
+$	r_{1} - r_{2}$
+
+$$
+\mathbf A \cdot I_{3} =
+\left(\begin{array}{ccc|ccc}
+1&0&4&1&-1&0
+\\
+0&1&-3&0&1&0
+\\
+0&0&1&0&0&1
+\end{array}\right)
+$$
+
+$	r_{1} - 4r_{3}$
+
+$$
+\mathbf A \cdot I_{3} =
+\left(\begin{array}{ccc|ccc}
+1&0&0&1&-1&-1
+\\
+0&1&-3&0&1&0
+\\
+0&0&1&0&0&1
+\end{array}\right)
+$$
+
+$	r_{2} + 3r_{3}$
+
+$$
+\mathbf A \cdot I_{3} =
+\left(\begin{array}{ccc|ccc}
+1&0&0&1&-1&-1
+\\
+0&1&0&0&1&3
+\\
+0&0&1&0&0&1
+\end{array}\right)
+$$
+
+Den inverse matrix X er her med bestemt til følgende
+
+
+$$
+\mathbf X =
+\left(\begin{array}{ccc}
+1&-1&-1
+\\
+0&1&3
+\\
+0&0&1
+\end{array}\right)
+$$
+\end{enumerate}
+\newpage
+\section{Opgave 2}
+\begin{enumerate}[(a)]
+  \item Jeg bestemer de elementære matricer ud fra de givne ero.
+
+$$\mathbf E_{1} =  \Eone $$
+
+$$\mathbf E_{2} = \Etwo $$
+
+$$\mathbf E_{3} = \Ethree $$
+
+$$\mathbf E_{4} = \Efour $$
+
+\item
+Jeg betsemer nu F ved at gange de elementære matricer sammen
+
+$$ F = \Efour \cdot \Ethree \cdot \Etwo \cdot \Eone $$
+
+$$ = \fourXthree \cdot \Etwo \cdot \Eone$$
+
+$$ = \fourXthreeXtwo \cdot \Eone$$
+
+$$ = \fourXthreeXtwoXone$$
+
+$$ = 5 \cdot \fourXthreeXtwoXone$$
+
+$$ = \fiveXfourXthreeXtwoXone$$
+
+F er hermed bestemt.
+
+Jeg finder nu de inverse matricer til de elementære matricer ved at benytte de
+inverse ERO og benyte dem på $I_{2}$
+
+
+$r_{2} + 4\cdot r_{1} $ $$E_{1}^{-1} = \left(\begin{array}{ccc}
+1&0&0
+\\
+4&1&0
+\\
+0&0&1
+\end{array}\right) $$
+  
+$ r_{2} \leftrightarrow r_{3} $ $$ E_{2}^{-1} = \left(\begin{array}{ccc}
+1&0&0
+\\
+0&0&1
+\\
+0&1&0
+\end{array}\right) $$
+
+$ r_{3} \cdot 5 $ $$ E_{3}^{-1} = \left(\begin{array}{ccc}
+1&0&0
+\\
+0&1&0
+\\
+0&0&5
+\end{array}\right) $$
+
+$ r_{1} - r_{3}$ $$ E_{4}^{-1} = \left(\begin{array}{ccc}
+1&0&-1
+\\
+0&1&0
+\\
+0&0&1
+\end{array}\right) $$
+
+Jeg bestemer nu G ved at gange matricerne sammen fra venstre og får følgende
+
+
+$$G=E_{1}^{-1}E_{2}^{-1}E_{3}^{-1}E_{4}^{-1}$$
+
+$$
+\left(\begin{array}{ccc}
+1&0&0
+\\
+4&1&0
+\\
+0&0&1
+\end{array}\right)
+\left(\begin{array}{ccc}
+1&0&0
+\\
+0&0&1
+\\
+0&1&0
+\end{array}\right) 
+\left(\begin{array}{ccc}
+1&0&0
+\\
+0&1&0
+\\
+0&0&5
+\end{array}\right) 
+\left(\begin{array}{ccc}
+1&0&-1
+\\
+0&1&0
+\\
+0&0&1
+\end{array}\right) = 
+\left(\begin{array}{ccc}
+1&0&-1
+\\
+4&0&1
+\\
+0&1&0
+\end{array}\right)$$
+
+\item
+Fra bogen har jeg at den inverse matrix $A^{-1}$ kan udtrykes ved
+produktet af de elementære matricer som svare til de ero som omformer A til
+enhedsmatricen. Det er lige netop hvad F er udtryk for i opgave b. Også fra
+bogen har jeg at den ``ikke'' inverse matrice af F kan udtrykes som følgende
+$$A=E_{1}^{-1}E_{2}^{-1}E_{3}^{-1}E_{4}^{-1}$$ Hvilket svare til matricen G.
+Derfor er A givet ved følgende matrice
+$$\left(\begin{array}{ccc}
+1&0&-1
+\\
+4&0&1
+\\
+0&1&0
+\end{array}\right)$$
+
+
+\end{enumerate}
+\section{Opgave 3}
+\begin{enumerate}[{a}]
+\item
+Jeg bestemer nabomatricen
+$$N = \left(\begin{array}{ccccc}
+0&1&1&0&1
+\\
+1&0&0&0&1
+\\
+0&1&0&1&0
+\\
+0&0&1&0&0
+\\
+1&0&0&0&0
+\end{array}\right)$$
+
+Da jeg har oplyst $N^{6}$ benytter jeg denne til at at aflæse antalet af veje
+fra knude 2 til knude 2 af længden 6. Denne værdi er angivet på plads
+${N^{6}}_{22}$ og har værdien 12. Der er derfor 12 veje fra kude 2 til kunde 2.
+
+\item
+Lad $N_{j}$ være antalet af links der udgår fra knude j. Så har jeg følgende
+$$N_{1} = 3, N_{2} = 2, N_{3} = 2, N_{4} = 1, N_{5} = 1$$
+
+Jeg kan nu besteme ligningerne for $x_1, x_2, x_3, x_4, x_5, $
+
+$$ x_1 = x_5 + 1/2 x_2$$
+$$ x_2 = 1/2x_3 + 1/3x_1$$
+$$ x_3 = 1/3x_1 + x_4$$ 
+$$ x_4 = 1/2x_3$$
+$$ x_5 = 1/3x_1 + 1/2x_2$$
+
+Jeg kan nu besteme linkmatricen A Til følgende
+
+$$A = \left(\begin{array}{ccccc}
+0&1/2&0&0&1
+\\
+1/3&0&1/2&0&0
+\\
+1/3&0&0&1&0
+\\
+0&0&1/2&0&0
+\\
+1/3&1/2&0&0&0
+\end{array}\right)$$
+
+\item
+Linkmatricen kan skrives på formen $Ax=x$ hvor
+
+$$x = \left(\begin{array}{c}
+x_1\\x_2\\x_3\\x_4\\x_5
+\end{array}\right)$$
+
+Dette kan omformes til følgende total matrice
+$$A = \left(\begin{array}{ccccc|c}
+-1&1/2&0&0&1
+&0\\
+1/3&-1&1/2&0&0
+&0\\
+1/3&0&-1&1&0
+&0\\
+0&0&1/2&-1&0
+&0\\
+1/3&1/2&0&0&-1&0
+\end{array}\right)$$
+
+Jeg benytter mig af Gaussian Elimination og får følgende matrice
+
+$$A = \left(\begin{array}{ccccc|c}
+1&0&0&0&-3/2&0
+\\
+0&1&0&0&-1&0
+\\
+0&0&1&0&-1&0
+\\
+0&0&0&1&-1/2&0\\
+0&0&0&0&0&0
+\end{array}\right)$$
+
+Jeg kan nu bestemme vektoren x til følgende
+$$x = \left(\begin{array}{c}
+3/2\\1\\1\\1/2\\1
+\end{array}\right)$$
+
+Sider kan nu rangeres. $x_1$ har højest rang $x_2, x_3 $ og $ x_5$ har samme
+rang og kommer lige efter $x_1$. $x_5$ har laveste rang.
+
+\end{enumerate}
+\end{document}
