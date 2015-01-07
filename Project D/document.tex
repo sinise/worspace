@@ -1,0 +1,273 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass[12pt]{article}
+\usepackage{amsmath} % flere matematikkommandoer
+\usepackage[utf8]{inputenc} % æøå
+\usepackage[T1]{fontenc} % mere æøå
+\usepackage[danish]{babel} % orddeling
+\usepackage{enumerate}
+\usepackage{tabto}
+\title{Projekt C}
+\author{Sebastian O. Jensen, GJX 653}
+
+\begin{document}
+
+\newcommand{\aar}{
+1  }
+\newcommand{\ab}{
+3  }
+\newcommand{\ac}{
+1  }
+\newcommand{\ba}{
+4  }
+\newcommand{\bb}{
+2  }
+\newcommand{\bc}{
+-1  }
+\newcommand{\ca}{
+-2  }
+\newcommand{\cb}{
+4 }
+\newcommand{\cc}{
+2  }
+
+\maketitle
+\newpage
+\section{Opgave}
+\begin{enumerate}[(a)]
+\item 
+Det karakteristiske polynomie $p(\lambda)$ for A er givet ved
+$$
+p(\lambda) = det(\lambda I-A) = \begin{array}{|ccc|}
+\lambda-3&-1&0\\
+-6&\lambda-2&0\\
+0&0&\lambda+1
+\end{array}
+$$
+$$
+p(\lambda) = (\lambda-3) (\lambda-2) (\lambda+1) +
+(1\cdot 0 \cdot 0)
++ (0 \cdot (-6) \cdot 0)
+-
+$$$$(0 \cdot (\lambda -2)  \cdot 0)
+-(0 \cdot 0 \cdot (\lambda -3))
+-((\lambda +1)(-6)(-1))= 
+$$
+$$
+(\lambda-3) (\lambda-2) (\lambda+1)
+-((\lambda +1) \cdot (-6)\cdot (-1))=
+$$$$
+(\lambda-3) (\lambda-2) (\lambda+1)
+-(6\lambda +6)=
+$$$$
+(\lambda^2-5\lambda +6)(\lambda+1)-(6\lambda +6)=
+$$
+$$
+\lambda^3 + \lambda^2 -5\lambda^2 -5\lambda +6\lambda + 6
+-6\lambda -6= $$
+$$
+\lambda^3 -4\lambda^2 -5\lambda
+= (\lambda)(\lambda+1)(\lambda-5) $$
+
+Hermed har vi fundet det karakteristiske poynomie
+\item
+Fra faktoriseringen i opgave a kan jeg aflæsse røderne til det karakteristiske
+polynomie til at være 0 -1 og 5, hvilket derfor er eigenværdierne for A
+
+\item 
+For vær eigenværdi findes den reducerede matrice af $A-\lambda I_3$ hvoraf
+eigenvektorene aflæsses $$
+A+1I_3 = \left(\begin{array}{ccc}
+4&1&0\\
+6&3&0\\
+0&0&0
+\end{array}\right)\sim
+\left(\begin{array}{ccc}
+1&0&0\\
+0&1&0\\
+0&0&0
+\end{array}\right) \Rightarrow E_-1 = t
+\left(\begin{array}{ccc}
+0\\
+0\\
+1
+\end{array}\right)
+$$
+
+$$
+A-0 I_3 = \left(\begin{array}{ccc}
+3&1&0\\
+6&2&0\\
+0&0&1
+\end{array}\right)\sim
+\left(\begin{array}{ccc}
+1&1/3&0\\
+0&0&1\\
+0&0&0
+\end{array}\right) \Rightarrow E_-1 = t
+\left(\begin{array}{ccc}
+-1\\
+3\\
+0
+\end{array}\right)
+$$
+
+$$
+A-0 I_3 = \left(\begin{array}{ccc}
+-2&1&0\\
+6&-3&0\\
+0&0&-6
+\end{array}\right)\sim
+\left(\begin{array}{ccc}
+1&-1/2&0\\
+0&0&1\\
+0&0&0
+\end{array}\right) \Rightarrow E_-1 = t
+\left(\begin{array}{ccc}
+1\\
+2\\
+0
+\end{array}\right)
+$$
+
+$$
+A-\lambda I_3 = \left(\begin{array}{ccc}
+-(\lambda-3)&1&0\\
+6&-(\lambda-2)&0\\
+0&0&-(\lambda+1)
+\end{array}\right) \Rightarrow E_-1 = t
+\left(\begin{array}{ccc}
+0\\
+0\\
+1
+\end{array}\right)
+$$
+Hermed er de 3 eigenvektore fundet.
+\end{enumerate}
+\section{Opgave}
+\begin{enumerate}[(a)]
+\item
+Determinanten af koefficientmatricen findes ved følgende udtryk
+$$
+a{11}a{22}a{33+}a{12}a{23}a{31+ }a{13}a{21}a{32-
+}a{11}a{23}a{32-}a{12}a{22}a{33- }a{13}a{22}a{31}=
+$$
+$$
+ \aar \cdot \bb \cdot \cc+
+ \ab \cdot (\bc) \cdot (\ca)+
+ \ac \cdot \ba \cdot \cb-
+ \aar \cdot (\bc) \cdot \cb-
+ \ab \cdot \ba \cdot \cc-
+ \ac \cdot \bb \cdot (\ca)=10
+$$
+\item
+Lad koeficientmatricen være givet ved A
+$$
+det(A_{31}) = 3\cdot (-1)-2 \cdot 1= -5
+$$
+$$
+C_{31} = (-1)^{3+1} \cdot -5= -5
+$$
+Da $adjA = C^T$ hvor C er kofactor matricen til A vil
+$$adjA_{13}= C_{31}=-5$$
+Af adjoint formlen følger
+$$
+A^{-1}=\frac{adjA}{det(A)}
+$$
+Elementet i den inverse matrix til koeficientmatricen i række 1 søjle 3 er
+derfor givet ved følgende
+$$
+A^{-1}_{13} = \frac{1}{10}\cdot -5=-1/2
+$$
+
+\item 
+vha. Cramers formel løses ligningssystemet. Først findes determinanten til
+$A_1$, $A_2$ og$A_3$
+
+$$
+detA_1=\begin{array}{|ccc|}
+0&3&1\\
+0&2&-1\\
+1&4&2
+\end{array} = -5
+$$
+
+$$
+detA_2=\begin{array}{|ccc|}
+1&0&1\\
+4&0&-1\\
+-2&1&2
+\end{array}=5
+$$
+
+$$
+detA_2=\begin{array}{|ccc|}
+1&3&0\\
+4&2&0\\
+-2&4&1
+\end{array}=-10
+$$
+$$
+x_1 = \frac{|A_1|}{|A|}=\frac{-5}{10}=-1/2
+$$
+$$
+x_2 = \frac{|A_1|}{|A|}=\frac{5}{10}=1/2
+$$
+$$
+x_3 = \frac{|A_1|}{|A|}=\frac{-10}{10}=-1
+$$
+ligningsystemet er hermed løst.
+\item
+Der gælder følgende
+$$det(EA)=det(E)det(A=)$$
+$$det(A^T)=det(A)$$
+$$det(A_)=-det(A)$$
+
+Hvor $A_1$ er A hvor to rækker er ombyttet
+Determinanten af matrixproduktet er derfor givet ved følgende
+
+$$10\cdot (-10)\cdot 10 = 1000$$ 
+
+\end{enumerate}
+\section{Opgave}
+\begin{enumerate}[(a)]
+\item
+
+\begin{enumerate}[(i)]
+  \item 
+$$
+HB1 =\left(\begin{array}{ccc}
+0&1&0\\
+2&0&1\\
+2&-1&1
+\end{array}\right)\left(\begin{array}{ccc}
+7&12&3\\
+4&4&8\\
+3&3&6
+\end{array}\right)=
+\left(\begin{array}{ccc}
+4&4&8\\
+17&27&12\\
+13&23&4
+\end{array}\right)
+$$
+
+$$
+HB2 =\left(\begin{array}{ccc}
+0&1&0\\
+2&0&1\\
+2&-1&1
+\end{array}\right)
+\left(\begin{array}{ccc}
+7&12&2\\
+4&4&8\\
+3&3&8
+\end{array}\right)=
+\left(\begin{array}{ccc}
+4&4&8\\
+17&27&12\\
+13&23&4
+\end{array}\right)
+$$
+\end{enumerate}
+\end{document}

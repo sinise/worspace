@@ -1,0 +1,450 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath} % flere matematikkommandoer
+\usepackage[utf8]{inputenc} % æøå
+\usepackage[T1]{fontenc} % mere æøå
+\usepackage[danish]{babel} % orddeling
+\usepackage{enumerate}
+
+\title{Projekt B}
+\author{Sebastian O. Jensen, GJX 653}
+
+\begin{document}
+\maketitle
+\newpage
+\section{Opgave 1}
+\begin{enumerate}[(a)]
+\item
+
+Fra den reducerede rækkeechelonform for A har vi at $x_1$ og $x_2$ er
+ledende variabler. Vi kan derfor vælge  $x_3 = s$ og $x_4 = t$ hvilket giver
+følgende
+
+$x_1 = -s-t$
+
+$x_2 = -s+t$
+
+$x_3 = s$
+
+$x_4 = t$
+
+Dette kan skrives som følgende.
+
+$s(-1,-1,1,0)$ og $t(-1,1,0,1)$
+
+En bassis for nulrummet null A er hermed givet ved følgende vektorer
+$$
+\left(\begin{array}{c}
+-1\\-1\\1\\0
+\end{array}\right),
+\left(\begin{array}{c}
+-1\\-1\\1\\0
+\end{array}\right)
+$$
+
+\item
+En basis for søjlerummet for col A er givet ved søjlerne i den oprindelige
+matrix svarende til søjlerne med pivot 1 taller i den reducerede matrix.
+Søjlerne med pivot 1 taller i A* er søjle 1 og 2. En basis for søjlerummet col A
+er derfor følgende
+$$
+\left(\begin{array}{c}
+-2\\0\\-1\\3
+\end{array}\right),
+\left(\begin{array}{c}
+1\\1\\-1\\3
+\end{array}\right)
+$$
+
+\item
+Da den reducerede matrice har 2 pivot rækker er rank A = r = 3 og dermed er
+dimensionen af underummet ker T
+
+$T = 3$
+
+Dimmensionen af underummet ran T for en matrix med n søjler er givet ved
+
+$$ran T = n-r$$
+$$ran T = 4-2 = 2$$
+
+\item 
+At finde en vektor x som opfylder at $T(x) = v$ gøres ved at løse ligningen
+$$T(x) = Ax = v$$
+
+Da jeg ved at en basis for col A er givet ved søjle 1 og 2 må en mulig
+løsning være på formen $x = (x_1, x_2 , 0, 0)$
+Jeg opstiler følgende matrice og reducere vha. gauss jordan
+
+$$
+\left(\begin{array}{cc|c}
+-2&1&-1\\
+0&1&1\\
+-1&-1&-2\\
+3&3&6
+\end{array}\right)
+$$
+$$
+\left(\begin{array}{cc|c}
+1&0&1\\
+0&1&1\\
+0&0&0\\
+0&0&0
+\end{array}\right)
+$$
+
+En mulig vektor x er derfor givet ved 
+
+$$
+x = \left(\begin{array}{cc|c}
+1\\
+1\\
+0\\
+0
+\end{array}\right)
+$$
+
+For at finde en anden vektor y som opfyldder $T(y) = v$ betragter jeg ligningen
+$$T(x) = Ax = v$$
+Da v svare til den tredje søjle i A vil en mulig matrix for y være
+$$ 
+y = \left(\begin{array}{cc|c}
+0\\
+0\\
+1\\
+0
+\end{array}\right)
+$$
+
+Da
+$$
+Ay = \left(\begin{array}{cccc}
+-2&1&-1&-3\\
+0&1&1&-1\\
+-1&-1&-2&0\\
+3&3&6&0
+\end{array}\right) \cdot
+\left(\begin{array}{c}
+0\\
+0\\
+1\\
+0
+\end{array}\right)=
+\left(\begin{array}{c}
+-2 \cdot 0 + 1 \cdot 0 - 1 \cdot 1 -3 \cdot 0\\
+0 \cdot 0 + 1 \cdot 0 + 1 \cdot 1 -1 \cdot 0\\
+-1 \cdot 0 - 1 \cdot 0 -2 \cdot 1 + 0 \cdot 0\\
+3 \cdot 0 + 3 \cdot 0 + 6 \cdot 1 + 0 \cdot 0\\ 
+\end{array}\right)=
+\left(\begin{array}{cc|c}
+-1\\
+1\\
+-2\\
+6
+\end{array}\right) = v
+$$
+
+
+\end{enumerate}
+\section{Opgave 2}
+\begin{enumerate}[(a)]
+\item 
+For at finde basisskift-matricen  $\mathbf{P}_{\mathcal{B} \leftarrow\,\mathcal{C}}$
+opstiles total matrrix T ud fra de givne vektore
+$$
+T = \left(\begin{array}{cc|cc}
+1&1&3&8\\
+2&0&4&10\\
+3&2&8&21
+\end{array}\right)
+$$
+Ved at benyter gauss jordan fremkomer følgende reducerede matrix.
+$$
+T = \left(\begin{array}{cc|cc}
+1&0&2&5\\
+0&1&1&3\\
+0&0&0&0
+\end{array}\right)
+$$
+
+Basisskift-matricen $\mathbf{P}_{\mathcal{B} \leftarrow\,\mathcal{C}}$ er derfor
+følgende
+
+$$\mathbf{P}_{\mathcal{B} \leftarrow
+\,\mathcal{C}} = 
+\left(\begin{array}{cc}
+2&5\\
+1&3\\
+\end{array}\right)
+$$
+\item
+Jeg benytter samme methode til at finde basisskift-matricen
+$\mathbf{P}_{\mathcal{C} \leftarrow\,\mathcal{B}}$
+$$
+T = \left(\begin{array}{cc|cc}
+3&8&1&1\\
+4&10&2&0\\
+8&21&3&2
+\end{array}\right)
+$$
+
+$$
+T = \left(\begin{array}{cc|cc}
+1&0&3&-5\\
+0&1&-1&2\\
+0&0&0&0
+\end{array}\right)
+$$
+Hvilket giver følgende basisskift matrix
+$$\mathbf{P}_{\mathcal{C} \leftarrow
+\,\mathcal{B}} = 
+\left(\begin{array}{cc}
+3&-5\\
+-1&2\\
+\end{array}\right)
+$$
+\item
+
+Da x kan skrives som lignaer kombinationen $x = 3u_1 + u_2$ gælder det at
+
+$$[x]c = \left(\begin{array}{c}
+3\\
+1\\
+\end{array}\right)
+$$
+
+Vi benytter den tidligere beregnet basiskift matrix
+$\mathbf{P}_{\mathcal{C}\leftarrow \,\mathcal{B}}$
+og får følgende
+$$
+[x]b =\mathbf{P}_{\mathcal{C}\leftarrow \,\mathcal{B}} \cdot [x]c = 
+\left(\begin{array}{cc}
+3&-5\\
+-1&2\\
+\end{array}\right) \cdot
+\left(\begin{array}{c}
+3\\
+1\\
+\end{array}\right) =
+\left(\begin{array}{c}
+4\\
+-1\\
+\end{array}\right)
+$$
+
+Vektoren w udtrykt som en lignaer kombination af $v_1$ og $v_2$ er derfor
+følgende $$w = 4v_1 - v_2$$ 
+\end{enumerate}
+
+\section{Opgave 3}
+\begin{enumerate}[(a)]
+\item
+Når rumskibet rynker en plads frem vil rumskibets centrum C rykke til rumskibets
+spids S da S netop ligger et ryk frem for C.
+Samtidig får vi oplyst at punktet $C^F$ er rumskibets centrum efter et ryk frem,
+hvilket jo netop var hvad punktet S er derfor gælder det 
+$$C^F = S$$
+punktet $S^F$ er rumskibets spids efter et ryk frem. Dette svare til rumskibets
+spids forskudt et ryk i rumskibets længederetning. Dette kan udtrykes
+som følgende
+$$ S^F = S + (S - C)$$
+$$ S^F = 2S - C)$$
+Hvilket også kan skrives på vektor form
+$$ \left(\begin{array}{c}
+s_1^F\\
+s_2^F
+\end{array}\right) =
+ \left(\begin{array}{c}
+s_1\\
+s_2
+\end{array}\right) +
+ \left(\begin{array}{c}
+s_1\\
+s_2
+\end{array}\right) - 
+ \left(\begin{array}{c}
+c_1\\
+c_2
+\end{array}\right) = 
+ \left(\begin{array}{c}
+2s_1-c_1\\
+2s_2-c_2
+\end{array}\right)
+$$
+\item
+Fra opgave a har vi følgende.
+$$c^F_1 = s_1$$
+$$c^F_2 = s_2$$
+$$s^F_1 = 2s_1-c_1$$
+$$s^F_2 = 2s_2-c_2$$
+
+Her ud fra kan nu opstiles følgende
+
+$$
+\left(\begin{array}{c}
+c_1^F\\
+c_2^F\\
+s_1^F\\
+s_2^F
+\end{array}\right)
+ = \left(\begin{array}{cccc}
+0&0&1&0\\
+0&0&0&1\\
+-1&0&2&0\\
+0&-1&0&2
+\end{array}\right)
+\left(\begin{array}{c}
+c_1\\
+c_2\\
+s_1\\
+s_2
+\end{array}\right)
+$$
+F er derfor gevet ved følgende matrix
+$$ F  = \left(\begin{array}{cccc}
+0&0&1&0\\
+0&0&0&1\\
+-1&0&2&0\\
+0&-1&0&2
+\end{array}\right)
+$$
+
+\item
+$$cos(20) = 0,94$$
+$$sin(20) = 0,34$$
+
+\item Hvilket giver følgende matricer
+$$\mathbf{L}_\theta =
+  \left(\begin{array}{cccc}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0,6 & 0,34 & 0,94 & -0,34 \\
+    -0,34 & 0,6 & 0,34 & 0,94
+\end{array}\right)
+$$$$
+  \mathbf{R}_\theta =
+  \left(\begin{array}{cccc}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0,6 & -0,34 & 0,94 & 0,34 \\
+    0,34 & 0,6 & -0,34 & 0,94
+  \end{array}\right)
+$$
+hvor $\theta$ er vinklen på 20 grader
+
+Jeg benytter mul fra den udleveret java klasse og ganger matricerne sammen fra
+højre mod venstre.
+$$RFLFFR\left(\begin{array}{c}
+0\\
+0\\
+0\\
+1
+\end{array}\right) \approx =
+\left(\begin{array}{c}
+1,05\\
+3,89\\
+2,64\\
+7,77
+\end{array}\right)
+$$
+
+Efter tastekombinationen er udført vil rumskiber have følgende position
+Rumskibets centrum vil være i 
+$$(1,05. 3,89)$$
+Og rumskibets spids vil være i
+$$(2,64. 7,77)$$
+\end{enumerate}
+
+\section{Opgave 4}
+\begin{enumerate}[(a)]
+\item
+Følgende kode er implementeret i klassen Matrix. Se kildekoden for mere
+overskugelig indentering.
+
+  /**
+
+   * Create a new matrix which is the matrix product of this with B.
+
+   *
+
+   * @param B a matrix with same number of rows as this has columns
+
+   * @return a new matrix of size rows() x B.cols()
+
+   * @throws IllegalArgumentException if cols() is different from B.r$
+
+   **/
+
+  public Matrix mul(Matrix B) {
+
+    Matrix M = new Matrix(rows(), B.cols());
+
+    if(cols() != B.rows()){
+
+      System.out.print("number of colums in A has to equal number of $
+
+    }
+
+    else{
+
+      for(int i = 1; i <= M.rows(); i++){
+
+        for(int j = 1; j <= M.cols(); j++){
+
+          double v = 0;
+
+          for(int k = 1; k <= cols(); k++){
+
+            v = v + get(i, k)*B.get(k, j);
+
+          }
+
+          M.set(i, j, v);
+
+        }
+
+      }
+
+    }
+
+    return M;
+
+  }
+
+\item
+
+Til at definerer Matricerne A og B samt udregne AB og BA er lavet en java fil
+med navnet ProjectB.java som giver følgende udskrift ved kørsel
+
+Java ProjectB 
+
+Matrix A = 
+
+[1.0 2.0 3.0]
+
+[4.0 5.0 6.0]
+
+ 
+Matrix B = 
+
+[-7.0 8.0]
+
+[9.0 -10.0]
+
+[-11.0 12.0]
+
+A * B =
+
+[-22.0 24.0]
+
+[-49.0 54.0]
+
+
+B * A =
+
+[25.0 26.0 27.0]
+
+[-31.0 -32.0 -33.0]
+
+[37.0 38.0 39.0]
+
+\end{enumerate} 
+\end{document}

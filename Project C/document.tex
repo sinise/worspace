@@ -1,0 +1,504 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass[12pt]{article}
+\usepackage{amsmath} % flere matematikkommandoer
+\usepackage[utf8]{inputenc} % æøå
+\usepackage[T1]{fontenc} % mere æøå
+\usepackage[danish]{babel} % orddeling
+\usepackage{enumerate}
+\usepackage{tabto}
+\title{Projekt C}
+\author{Sebastian O. Jensen, GJX 653}
+
+\begin{document}
+\newcommand{\A}{
+\left(\begin{array}{cc}
+6&1\\
+4&4\\
+2&2\\
+13&-2
+\end{array}\right)
+  }
+
+\newcommand{\AT}{
+\left(\begin{array}{cccc}
+6&4&2&13\\
+1&4&2&-2
+\end{array}\right)
+  }
+ 
+\maketitle
+\newpage
+\section{Opgave}
+\begin{enumerate}[(a)]
+\item 
+For at to vektore er ortogonal skal deres prik produkt være nul
+
+$$
+\left(\begin{array}{c}
+6\\4\\2\\13
+\end{array}\right)\cdot
+\left(\begin{array}{c}
+1\\4\\2\\-2
+\end{array}\right)= 6 \cdot 1 + 4 \cdot 4 + 2 \cdot 2 + 13 \cdot \cdot-2= 0
+$$
+For at vektorene skal være en basis for U kræver det at de er lignært
+uafhængige. De er lignært uafhængige hvis rank er lig antalet af vektore.
+Vi bringer de 2 vektore på echelon form
+$$
+\left(\begin{array}{cc}
+1&1/6\\
+0&1\\
+0&0\\
+0&0\\
+\end{array}\right)
+$$
+Det ses her af at vektore er lignært uafhængige samtidig har vi oplyst at
+vektorene udspænder U. Derfor er de en basis for for U. Samtidig er
+prikproduktet 0 or dermed er de også ortogonale.
+
+\item 
+Fra bogen har vi følgende
+$$
+proj_\mu(v)= \left(\begin{array}{cccc}
+u_1&
+u_2&
+\ldots&
+u_k
+\end{array}\right)
+\left(\begin{array}{c}
+u^T_1\\
+u^T_2\\
+\ldots\\
+u^T_k
+\end{array}\right)v  
+$$
+
+Der gælder derfor følgende
+
+$$
+Pv= \left(\begin{array}{cccc}
+u_1&
+u_2&
+\ldots&
+u_k
+\end{array}\right)
+\left(\begin{array}{c}
+u^T_1\\
+u^T_2\\
+\ldots\\
+u^T_k
+\end{array}\right)v  
+$$
+
+
+$$
+P= \left(\begin{array}{cccc}
+u_1&
+u_2&
+\ldots&
+u_k
+\end{array}\right)
+\left(\begin{array}{c}
+u^T_1\\
+u^T_2\\
+\ldots\\
+u^T_k
+\end{array}\right)  
+$$
+
+Som kan udtrykes som
+$$
+P=A(A^T \cdot A)^{-1} A^T
+$$
+Hvor A er en matrice hvor søjlerne er basis for underrumet U
+
+Dette giver følgende
+
+$$
+P= \A \left(\AT \A\right) ^1 \AT =
+$$
+$$
+  \mathbf{P} \,=\, 
+    \frac{1}{225}
+    \left(\!\!
+    \begin{array}{rrrr}
+       45 &  60 &  30 &  60 \\
+       60 & 160 &  80 & -20 \\
+       30 &  80 &  40 & -10 \\
+       60 & -20 & -10 & 205 
+    \end{array}
+    \!\!\right).
+$$
+
+Hermed er det vist at projektionsmatricen er givet ved P
+
+\item
+Ved at benytte projektionsmatricen fra opgave b bestemes den ortogonale
+projektion af vektoren v på underrummet U 
+
+$$
+  \mathbf{Pv} \,=\, 
+    \frac{1}{225}
+    \left(\!\!
+    \begin{array}{rrrr}
+       45 &  60 &  30 &  60 \\
+       60 & 160 &  80 & -20 \\
+       30 &  80 &  40 & -10 \\
+       60 & -20 & -10 & 205 
+    \end{array}
+    \!\!\right).
+\cdot
+\left(\begin{array}{c}
+15\\0\\0\\0
+\end{array}\right)=
+\left(\begin{array}{c}
+3\\4\\2\\4
+\end{array}\right)
+$$
+\item
+Vi benyter os af Matrice A fra opgave b hvor søjlene er basis for underrummet U
+og finder den reducerede rækkeechelon form for $A^T$
+
+$$
+\AT=
+$$
+$$
+\left(\begin{array}{cccc}
+1&4&2&-2\\
+0&1&1/2&-25/20
+\end{array}\right)=
+$$
+$$
+\left(\begin{array}{cccc}
+1&0&0&3\\
+0&1&1/2&-25/20
+\end{array}\right)=
+$$
+Her af aflæses en basis for $U^\perp$
+
+$$
+\left(\begin{array}{cc}
+0&-3\\
+-1/2&25/20\\
+1&0\\
+0&1
+\end{array}\right)
+$$
+\end{enumerate}
+\section{Opgave}
+\begin{enumerate}[(a)]
+\item 
+i følge Gram-Schmit proceduren er $q_1$ og $q_2$ givet ved følgene udtryk
+
+ $$q_1 = \frac{v_1}{||v_1||}$$
+ $$q_2 = \frac{v_2- \left(q_1\cdot u_2\right)q1}{||v_2- \left(q_1\cdot
+ u_2\right)q1||}$$
+
+Hvor $q_1$ og $q_2$ er en otonormal basis for V
+
+Hvilket giver følgende
+$$q_1 =\frac{1}{3}
+\left(\begin{array}{c}
+-1\\
+2\\
+2
+\end{array}\right)
+$$
+
+$$q_1 \cdot v_2 =\frac{1}{3}
+\left(\begin{array}{c}
+-1\\
+2\\
+2
+\end{array}\right) \cdot
+\left(\begin{array}{c}
+1\\
+1\\
+4
+\end{array}\right) = 3$$
+
+$$
+v_2- \left(q_1 \cdot v_2 \right)q_1 = 
+\left(\begin{array}{c}
+1\\
+1\\
+4
+\end{array}\right)- 
+\left(\begin{array}{c}
+-1\\
+2\\
+2
+\end{array}\right) =
+\left(\begin{array}{c}
+2\\
+-1\\
+2
+\end{array}\right)  
+$$
+
+$$
+||v_2- \left(q_1\cdot
+ v_2\right)q_1|| = 3
+ $$
+ 
+$$
+q_2 = \frac{1}{3} \left(\begin{array}{c}
+2\\
+-1\\
+2
+\end{array}\right) 
+$$
+
+\item
+I følge Hardys bog kan koordinatvektoren $[w]_\beta$ bestemes med følgende
+udtryk
+
+$$
+[w]_\beta =
+\left(\begin{array}{c}
+x_1\\
+x_2\\
+x_3
+\end{array}\right)
+=
+\left(\begin{array}{c}
+\frac{w\cdot u_1}{||u_1||^2}\\
+\frac{w\cdot u_2}{||u_2||^2}\\
+\frac{w\cdot u_3}{||u_3||^2}
+\end{array}\right)
+$$
+
+Hvilket giver følgende koordinatvektor
+
+$$
+\left(\begin{array}{c}
+\frac{3}{1}\\
+\frac{2}{1}\\
+\frac{1}{1}\\
+\end{array}\right)
+=
+\left(\begin{array}{c}
+3\\
+2\\
+1
+\end{array}\right)
+$$
+
+\item
+$Q^{-1}$ bestemes vha. identitets matricen
+
+$$
+\left(\begin{array}{ccc|ccc}
+-1&2&2&1&0&0\\
+2&-1&2&0&1&0\\
+2&2&-1&0&0&1
+\end{array}\right)
+$$
+
+
+Der udføres række operationer og vi for følgende
+
+$$
+\left(\begin{array}{ccc|ccc}
+1&0&0&-1/9&2/9&2/9\\
+0&1&0&2/9&-1/9&2/9\\
+0&0&1&2/9&2/9&-1/9
+\end{array}\right)
+$$
+
+$Q^{-1}$ er her med givet ved følgende matrice.
+
+$$
+Q^{-1} = \left(\begin{array}{ccc}
+-1/9&2/9&2/9\\
+2/9&-1/9&2/9\\
+2/9&2/9&-1/9
+\end{array}\right)
+$$
+\end{enumerate}
+\section{Opgave}
+\begin{enumerate}[(a)]
+\item
+Vi benytter mindste kvadraters methode til at finde forskriften for ln y som y =
+mx + c
+Først opstiles matrix systemet ud fra de opgivne data og vi får følgende
+
+$
+A = \left(\begin{array}{cc}
+1&2004\\
+1&2005\\
+1&2007\\
+1&2008\\
+1&2009\\
+1&2010\\
+1&2011\\
+1&2012\\
+1&2013
+\end{array}\right)$
+$x = \left(\begin{array}{c}
+c\\m
+\end{array}\right)
+$
+$b = \left(\begin{array}{c}
+31,890\\
+32,550\\
+33,801\\
+34,564\\
+35,104\\
+35,481\\
+36,891\\
+37,331\\
+38,061
+\end{array}\right)
+$
+
+Da rank A = 2 har vi følgende
+
+$$
+\bar{x}= \left(\begin{array}{c}
+\bar{c}\\
+\bar{m}
+\end{array}\right)=
+\left(A^TA\right)^{-1}A^Tb
+$$
+
+Der benyttes en matrix beregner hvilket giver følgende
+$$
+\bar{x}= \left(\begin{array}{c}
+-1343,01\\
+0,6860
+\end{array}\right)
+$$
+
+forskriften for ln y er derfor givet ved følgende rette linje
+
+$$
+ln y=0,6860t-1343,01
+$$
+\item
+Fra opgave b har vi
+
+$$
+ln y=0,6860t-1343,01
+$$
+
+Dette kan omskrives til 
+
+
+$$
+y= e^{0,6860t-1343,01}
+$$
+$$
+y= e^{0,6860 \cdot 2004-1343,01} \cdot e^{0,6860(t-2004)}
+$$
+$$
+y= 6,112854146 \cdot 10^{13} \cdot e^{0,6860(t-2004)}
+$$
+Hvilket stemmer overens med den i opgaven nævnte funktion. Funktionerne stemmer
+ikke helt overens da de udregnede værdier i opgave a ikke er præcis de samme
+som opgavens.
+
+\item  
+Ved at benytte tilnærmelsen fra opgaven fåes følgende resultat for antal flops i
+1996
+
+$$
+6.44\cdot10^{13} \cdot e^{0.639(1996-2004)}= 387,94 \cdot 10^{9}
+$$
+
+Hvilket er en del mere end det faktiske antal flops i 1996. Hvis parameterne som
+blev fundet i opgave a blev benyttet vil udregningen give $266,3 \cdot 10^{9}$
+hvilket er nærmere det faktiske niveu i 1996.
+\end{enumerate}
+\section{Opgave}
+\begin{enumerate}[(a)]
+ProjectC.java er main programmet der benyter sig den udleveret klasse
+Matrix.java. I Matrix. java er udover den udfyldte methode gramschmith
+også tilføjet en methode sub som er en modification af add. 
+Følgende kode er implementeret i bunden af den udleveret Matrix klasse.
+Se java fil for mere overskugelig indentering
+
+-  
+
+  /**
+   * Create a new matrix where the column vectors form an orthonormal subspace spanning the same as this, and calculated by the Gram-Schmidt process.
+   *
+   * @return a new matrixs
+   **/
+  public Matrix GramSchmidt() {
+    int m = rows();
+    int n = cols();
+
+    Matrix r = new Matrix(m,n);
+	Matrix q = new Matrix(m,n);
+    for(int j = 1; j <= n; j++){
+        q = q.replaceCol(j, subMatrix(1, j, m, j));
+        for(int i = 1; i <= j-1; i++){
+            Matrix qi = q.subMatrix(1, i, m, i);
+            Matrix uj = subMatrix(1, j, m, j);
+            Matrix qj = q.subMatrix(1, j, m, j);
+            r.set(i, j, qi.transpose().mul(uj).get(1, 1));
+            q = q.replaceCol(j, qj.sub(qi.mul(r.get(i,j))));
+        }
+        double qjLength = 0;
+        for(int i = 1; i <= m; i++){
+            qjLength += Math.pow(q.get(i, j), 2);
+        }
+        qjLength = Math.sqrt(qjLength);
+        r.set(j, j, qjLength);
+        q = q.replaceCol(j, q.subMatrix(1, j, m, j).mul(1/(r.get(j,j))));
+    }
+	return q;
+  }
+
+  /**
+   * Create a new matrix, which is the element-wise subtraction of this with another matrix B.  The two matrices must be of the same size.
+   *
+   * @param B a matrix
+   * @return a new matrix
+   * @throws IllegalArgumentException if number of rows and columns differs in this and B
+   **/
+  public Matrix sub(Matrix B) {
+	if((rows()!=B.rows()) || (cols()!=B.cols())) {
+      throw new IllegalArgumentException("Number of rows and columns differ");
+	}
+	Matrix M = new Matrix(rows(), cols());
+	double v;
+
+	for(int i = 1; i <= rows(); i++) {
+      for(int j = 1; j <= cols(); j++) {
+		v = get(i, j);
+		M.set(i, j, v-B.get(i, j));
+      }
+	}
+
+	return M;
+  }
+
+Udskriften fra kørsel af ProjecC er følgende
+
+OPGAVE 4 b 
+
+Matrix A = 
+
+[4.0 0.0 -1.0]
+
+[-8.0 -2.0 4.0]
+
+[-1.0 1.0 3.0]
+
+[12.0 0.0 2.0]
+
+Matrix Q
+
+[0.26666666666666666 -0.13333333333333333 -0.2]
+
+[-0.5333333333333333 -0.7333333333333334 0.4]
+
+[-0.06666666666666667 0.5333333333333333 0.8]
+
+[0.8 -0.4 0.39999999999999997]
+
+\end{enumerate}
+\end{document}
