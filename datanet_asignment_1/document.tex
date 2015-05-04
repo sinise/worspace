@@ -1,0 +1,77 @@
+\documentclass[a4paper,12pt,danish]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{fancyvrb}
+\usepackage{pbox}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{multicol}
+\pagestyle{fancy}
+%Setting link borders to none
+\hypersetup{pdfborder = {0 0 0}}
+
+\fancyhead[C]{}
+\fancyhead[L]{}
+\fancyhead[R]{\footnotesize{
+Sebastian O. Jensen \textsc{140679}}}
+
+\begin{document}
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
+\center
+\small{14.06-79 Sebastian Ostenfeldt Jensen \textsc{GJX653}
+} \\[2cm]
+
+\textsc{\LARGE Datalogisk Institut}\\[0.5cm]
+\textsc{\large Københavns Universitet}\\[1.5cm]
+\textsc{\large Datanet}\\
+\HRule \\[0.7cm]
+{\huge \bfseries 2015}\\[0.4cm]
+\HRule \\[1.5cm]
+\textsc{\Large \textsc{\today}}\\[0.5cm]
+
+\includegraphics[scale=0.5]{ku_logo.png}\\[1cm]
+
+\end{titlepage}
+\tableofcontents
+\newpage
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+\renewcommand\thesubsection{}
+\newcommand{\minus}[1]{{#1}^{-}}
+\section{Abstract}
+We are to develop a http client tool that can download a file from a given url.
+This is done by low level socket programing using python language and following
+the http protocol version 1.1 and with the requerment that the implementet protocols are compliant
+
+\section{Introduktion}
+An implementation is not compliant if it fails to satisfy one or more
+   of the MUST or REQUIRED level requirements for the protocols it
+   implements
+   
+   
+   Certain buggy HTTP/1.0 client implementations generate extra CRLF's
+   after a POST request. To restate what is explicitly forbidden by the
+   BNF, an HTTP/1.1 client MUST NOT preface or follow a request with an
+   extra CRLF.
+\section{Design}
+\section{Implementation}
+\section{Experiments}
+\section{Results}
+
+
+
+
+\end{document}

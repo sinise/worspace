@@ -1,0 +1,7 @@
+\select@language {danish}
+\contentsline {section}{\numberline {1}Abstract}{2}{section.0.1}
+\contentsline {section}{\numberline {2}Introduktion}{2}{section.0.2}
+\contentsline {section}{\numberline {3}Design}{2}{section.0.3}
+\contentsline {section}{\numberline {4}Implementation}{2}{section.0.4}
+\contentsline {section}{\numberline {5}Experiments}{2}{section.0.5}
+\contentsline {section}{\numberline {6}Results}{2}{section.0.6}

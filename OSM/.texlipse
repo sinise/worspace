@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Fri Mar 27 09:44:02 CET 2015
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=Exam_jensen_140679.tex
+outputFile=Exam_Jensen_140679.pdf
+langSpell=en
+markDer=true
+srcDir=

@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Fri Mar 27 09:40:07 CET 2015
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=osm_exame_jensen_gjx653.tex
+outputFile=osm_exam_2015_Jensen_gjx653.pdf
+langSpell=en
+markDer=true
+srcDir=

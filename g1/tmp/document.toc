@@ -1,0 +1,7 @@
+\select@language {danish}
+\contentsline {section}{\numberline {0.1}Task 1. A priority queue}{2}{section.0.1}
+\contentsline {subsection}{\numberline {}notes}{2}{subsection.0.1.1}
+\contentsline {subsection}{\numberline {}Implementation}{2}{subsection.0.1.2}
+\contentsline {section}{\numberline {0.2}Task 2. Buenos system calls for basic I/O}{3}{section.0.2}
+\contentsline {subsection}{\numberline {}notes}{3}{subsection.0.2.1}
+\contentsline {subsection}{\numberline {}Implementation}{3}{subsection.0.2.2}

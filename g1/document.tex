@@ -1,0 +1,116 @@
+\documentclass[a4paper,12pt,danish]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{fancyvrb}
+\usepackage{pbox}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{multicol}
+\pagestyle{fancy}
+%Setting link borders to none
+\hypersetup{pdfborder = {0 0 0}}
+
+\fancyhead[C]{}
+\fancyhead[L]{}
+\fancyhead[R]{\footnotesize{
+Rane Eriksen \textsc{BVL193}\\
+Christian Efternavn \textsc{??????}\\
+Sebastian O. Jensen \textsc{gjx653}}}
+
+\begin{document}
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
+\center
+\small{ \emph{Forfattere:}\\
+13.07-89 Rane Eriksen \textsc{BVL193}
+\\
+dd.mm-yy Christian Efternavn \textsc{nummerplade}
+14.06-79 Sebastian O. Jensen \textsc{gjx653}
+\\
+Hold 1} \\[2cm]
+
+\textsc{\LARGE Datalogisk Institut}\\[0.5cm]
+\textsc{\large Københavns Universitet}\\[1.5cm]
+\textsc{\large OSM}\\
+\HRule \\[0.7cm]
+{\huge \bfseries G-Assignment 1}\\[0.4cm]
+\HRule \\[1.5cm]
+\textsc{\Large \textsc{\today}}\\[0.5cm]
+
+\includegraphics[scale=0.5]{ku_logo.png}\\[1cm]
+
+\end{titlepage}
+\tableofcontents
+\newpage
+\renewcommand{\thesectiont	}{\arabic{section}}
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+\renewcommand\thesubsection{}
+\newcommand{\minus}[1]{{#1}^{-}}
+\section{Task 1. A priority queue}
+\subsection{notes}
+
+The max-heap data structure is a tree structure with the priority that the root element always contains
+the element with the highest value. Inserting elements and removing the root element has a runing time of 
+O(log n). Therefore it makes a good structure for a priority queue, and can be used to improve the 
+current priority queue with a running time of O(n^2)
+
+
+The implementation of the heap priority queue are as follow:
+
+Heap initialize(heap *h) initialize a new heap by allocating size for a heap array and initialize the size of the 
+elements in the heap
+
+heap_clear(heap *h) will free the memory used by a priority queue
+
+heap_size return the size of the heap
+
+heap_insert insert an element in to the heap and sort the heap to maintain the heap properties.
+If the heap is full memory for the heap is reallocated so the heap becomes twice as big.
+
+heap_pop return the root element which is the element with highest priority and then sort the heap
+to maintain the heap properties.
+
+\subsection{Implementation}
+\newpage
+\section{Task 2. Buenos system calls for basic I/O}
+\subsection{notes}
+Implementing Buenos syscall read and write.
+
+In the folder test a usserland program which make calls to read and write is implemented.
+The program is named readwrite. Readwrite make use of file the test/lib.c which already define
+functions to call the two syscall functions. Read and write both has three arguments filehandle, buffer
+and length. Filhandle is normaly a file.
+But you can also read or write to stdin or stdout as they are both considered as files by the system.
+In proc/syscal.h the stdin and stdout filehandlers are defined to 0 and 1 respectively. The buffer argument is the buffer were to the content is written to or read from. The length are the maximum length to read or write. The return value is the length of the read or written characters or -1 if the syscal failed.
+When a syscal is made, the number corresponding to the syscall as defined in proc/syscall.h is saved to mips register A0.
+The arguments are stored in mips register A1, A2, A3. When the syscall return the return value is saved to register V0.
+
+syscall_handle in proc/syscall.c are handleling the systemcall by calling the syscall function which is specified in register A0.
+In case of read or write, this is the functions which is implemented in kernel/read.c and kernel/write.c
+Write.c defines the function syscall_write
+It make use of the gcd driver (generic character devices) to write to stdout which is the console.
+First the console is initialized and then one character at a time is written to the consol. 
+When all characters in the buffer up until \0 is written the function return the number of characters written or -1 if it failed
+
+read.c defines the function syscall_read
+Read also make use of the gcd driver. It reads one character at a time until the buffer is full or the user press enter then it return the number of read characters or -1 if it failed
+The file kernel/module.mk is a make file that is handling the compilation of the kernel modules. Therefore read.c and write.c are added to this file.
+
+_interrupt.S ??????????
+
+main.c ???????????
+
+\subsection{Implementation}
+\end{document}
